@@ -106,6 +106,7 @@ Start-Process -NoNewWindow node -ArgumentList "dist/main.js"
 - `daemon.sh` 不可用 → 直接用 `node dist/main.js` 启动，或使用 Windows 任务计划程序实现开机自启
 - `which`/`readlink` 报错 → 静默 fallback，不影响功能
 - `chmod` 在代码中已做 `process.platform !== 'win32'` 判断
+- 微信端无「正在输入」提示 → 已修复，在 `send.ts` 中增加 `sendTypingIndicator` 方法，Claude 处理前先发 `GENERATING` 状态消息
 
 ### 服务持久化方案
 
